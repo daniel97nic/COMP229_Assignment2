@@ -1,10 +1,22 @@
-const express = require('express')
-const app = express()
+import app from './server/express.js';
+import productRoutes from './server/routes/product.routes'; // Import product routes
+import mongoose from 'mongoose';
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+mongoose.set("strictQuery", false);
+mongoose
+  .connect('mongodb+srv://danielmayorga97:TnHrW6f9MxRP7TsJ@cluster0.zdxepku.mongodb.net/Marketplace?retryWrites=true&w=majority&appName=AtlasApp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log('MongoDB Connected');
+    app.listen(3000, () => {
+      console.log('Server is running on port 3000.');
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000.')
-})
+  app.use('/api', productRoutes);
+
