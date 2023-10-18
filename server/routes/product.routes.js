@@ -17,4 +17,7 @@ router.put('/products/:id', ProductController.updateProduct);
 // Delete product by ID
 router.delete('/products/:id', ProductController.deleteProduct);
 
+//Delete all products
+router.delete('/products', ProductController.deleteAllProducts);
+
 module.exports = router;

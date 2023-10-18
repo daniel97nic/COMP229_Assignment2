@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon --exec babel-node server.js"
   },
   "author": "Daniel Mayorga",
   "license": "ISC",
@@ -21,12 +21,12 @@
     "helmet": "^7.0.0",
     "lodash": "^4.17.21",
     "method-override": "^3.0.0",
-    "mongoose": "^7.6.3",
-    "nodemon": "^3.0.1"
+    "mongoose": "^7.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.23.2"
+    "@babel/preset-env": "^7.23.2",
+    "nodemon": "^3.0.1"
   }
 }

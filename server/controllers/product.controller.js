@@ -53,6 +53,18 @@ const ProductController = {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
+  },
+  deleteAllProducts: async (req, res) => {
+    try {
+      const product = await Product.deleteMany({});
+      if (product) {
+        res.status(200).json({ message: 'Products deleted successfully' });
+      } else {
+        res.status(404).json({ error: 'Products not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 };
 
