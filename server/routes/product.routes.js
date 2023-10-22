@@ -8,11 +8,8 @@ router.post('/products', ProductController.createProduct);
 // Get product by ID
 router.get('/products/:id', ProductController.getProductById);
 
-//Get product by partial name
-router.get('/products', ProductController.getProductByName);
-
-// Get all products
-router.get('/products', ProductController.getAllProducts);
+// Get all products or find them by partial name
+router.get('/products', ProductController.getProduct);
 
 // Update product by ID
 router.put('/products/:id', ProductController.updateProduct);
